@@ -2,7 +2,7 @@
 	margin-top: 15px;
 	margin-bottom: 5px;
 	border-radius: 2px;
-	max-width: 95%;
+	max-height: 350px;
 	opacity: 0.6;
 }
 
@@ -56,4 +56,10 @@ h1 {
 
 #search-term p {
 	text-align: center;
+}
+
+@media (max-width: 775px) {
+	#results img {
+		width: 95%
+	}
 }
