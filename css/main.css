@@ -1,0 +1,59 @@
+#results img {
+	margin-top: 15px;
+	margin-bottom: 5px;
+	border-radius: 2px;
+	max-width: 95%;
+	opacity: 0.6;
+}
+
+.song-info p {
+	margin-bottom: 0px;
+}
+
+.song-info button {
+	margin-bottom: 3px;
+}
+
+#help-text span{
+	text-align: center;
+}
+
+body {
+	background-color: black;
+	color: white;
+}
+
+#results {
+	background-color: #708090;
+	border-radius: 5px;
+	margin-bottom: 15px;
+}
+
+h1 {
+	text-align: center;
+	font-size: 4em;
+	display: inline-block;
+}
+
+#heading img{
+	max-height: 4em;
+	margin-bottom: 30px;
+}
+
+.artist:hover, .artist:focus {
+	text-decoration: none;
+	color: white;
+}
+
+.artist {
+	color: white;
+}
+
+#search-term h3 {
+	margin-top: 15px;
+	text-align: center;
+}
+
+#search-term p {
+	text-align: center;
+}

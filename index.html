@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>SpotSearch</title>
+		
+		<!-- Include libraries -->
+		<script src="https://code.jquery.com/jquery.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+		
+		<!-- Read scripts -->
+		<script src="js/main.js"></script>
+		<link href="css/main.css" type="text/css" rel="stylesheet"/>	
+		
+	</head>
+
+	<!-- Initiate app -->
+	<body ng-app="myApp" ng-controller="myCtrl">
+
+		<!-- Introduces Application -->
+		<div id="heading" class="container">
+			<img src="../img/spotify-logo.png">
+			<h1>SpotSearch</h1>
+			<p>This web application allows users to see the top 10 songs for an artist in the USA. After entering an artist's name, the application returns a list of the top 10 songs with samples of the track and a link to the artist's spotify page where they can learn more about them.</p>
+		</div>
+
+		<!-- Form -->
+		<form class="container" name="songForm" id="userForm">
+			<div class="form-group">
+				<label>SpotSearch:</label>
+				<input name="search" placeholder="Search for an artist!" ng-model="track" class="form-control" required></input>
+			</div>
+
+			<div class="form-group">
+				<button ng-disabled="songForm.search.$invalid" class="btn btn-success" ng-click="getSongs()" type="submit">Submit</button>
+			</div>
+		</form>
+			
+		<!-- Results -->
+		<div id="results" class="container" ng-show="track">
+			<div id="search-term" ng-show="tracks.length>0">
+				<h3>Current Top 10 Songs For {{name}}</h3>
+				<p>Click image to sample, click again to pause. Click artist name for more info!</p>
+			</div>
+			<div class="container">
+				<div class="col-xs-12 col-md-6" ng-repeat="track in tracks" title="{{track.name}}">
+					<center class="song-info">
+						<img src="{{track.album.images[0].url}}" ng-click="play(track.preview_url); imgStyle={'opacity':1.0}" ng-style="imgStyle">
+						<p>{{track.name}}</p>
+						<a class="artist" href="{{track.artists[0].external_urls.spotify}}" target="_blank">
+							<button class="btn btn-success">{{track.artists[0].name}}</button>
+						</a>
+					</center>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
